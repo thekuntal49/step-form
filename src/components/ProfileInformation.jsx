@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 
 const ProfileInformation = ({ prevStep, nextStep }) => {
   const [formData, setFormData] = useState({
     profilePicture: "",
     bio: "",
-    interests: [],
     socialLinks: "",
   });
 
@@ -36,14 +36,6 @@ const ProfileInformation = ({ prevStep, nextStep }) => {
           })
         );
       };
-    } else if (name === "interests") {
-      const selectedInterests = Array.from(options)
-        .filter((option) => option.selected)
-        .map((option) => option.value);
-      setFormData({
-        ...formData,
-        interests: selectedInterests,
-      });
     } else {
       setFormData({
         ...formData,
@@ -82,7 +74,10 @@ const ProfileInformation = ({ prevStep, nextStep }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
+      toast.success("Profile Created Successfully!");
       nextStep();
+    } else {
+      toast.error("Please fix the errors in the form.");
     }
   };
 
