@@ -27,19 +27,18 @@ const SuccessPage = () => {
           <img
             src={userData.profilePicture}
             alt="User Avatar"
-            className="w-24 h-24 rounded-full mb-4"
+            className="w-24 h-24 object-contain bg-white rounded-full mb-4"
           />
         ) : (
           <div className="w-24 h-24 bg-gray-300 rounded-full mb-4 flex items-center justify-center">
             <span className="text-gray-600 text-xl">User</span>
           </div>
         )}
-        {/* User Message */}
         <p className="text-center mb-6">
           <span className="block text-2xl  font-semibold">
-            Dear {userData?.name || "User"},
+            {userData?.name || "User"}
           </span>{" "}
-          <span className="block  text-gray-300 mb-2 ">{userData?.bio},</span>{" "}
+          <span className="block  text-gray-300 mb-2 ">{userData?.bio}</span>{" "}
           Thank you for registering with Social Clubs! We're excited to have you
           on board. Your account has been successfully created.
         </p>
