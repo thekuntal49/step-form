@@ -12,7 +12,6 @@ const AddressDetails = ({ prevStep, nextStep }) => {
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    // Load saved data from localStorage
     const savedData = JSON.parse(sessionStorage.getItem("formData"));
     if (savedData) {
       setFormData(savedData);
@@ -22,7 +21,6 @@ const AddressDetails = ({ prevStep, nextStep }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Remove the error for the field being edited
     setErrors((prevErrors) => ({
       ...prevErrors,
       [name]: "",
@@ -33,7 +31,6 @@ const AddressDetails = ({ prevStep, nextStep }) => {
       [name]: value,
     });
 
-    // Save data to localStorage
     sessionStorage.setItem(
       "formData",
       JSON.stringify({
@@ -63,7 +60,7 @@ const AddressDetails = ({ prevStep, nextStep }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      nextStep(); // Proceed to next step if validation passes
+      nextStep();
     }
   };
 
@@ -137,7 +134,6 @@ const AddressDetails = ({ prevStep, nextStep }) => {
             <option value="India">India</option>
             <option value="USA">USA</option>
             <option value="UK">UK</option>
-            {/* Add more countries as needed */}
           </select>
           {errors.country && (
             <p className="text-red-500 mt-1 text-sm">{errors.country}</p>

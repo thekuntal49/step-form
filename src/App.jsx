@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Toaster } from "react-hot-toast"; // Import Toaster
+import { Toaster } from "react-hot-toast"; 
 import { WelcomePage } from "./pages/WelcomePage";
-import { FormPage } from "./pages/FormPage"; // Import the FormPage component
+import { FormPage } from "./pages/FormPage"; 
 import { SuccessPage } from "./pages/SuccessPage";
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/form" element={<FormPage />} />
-        <Route path="/success" element={<SuccessPage />} /> {/* Updated route to handle form steps */}
+        <Route path="/success" element={<SuccessPage />} />
       </Routes>
       <Toaster position="top-right" reverseOrder={false} />
     </Router>

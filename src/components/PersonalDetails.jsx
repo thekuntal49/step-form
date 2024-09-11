@@ -12,7 +12,6 @@ const PersonalDetails = ({ nextStep }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
-    // Load saved data from sessionStorage
     const savedData = JSON.parse(sessionStorage.getItem("formData"));
     if (savedData) {
       setFormData(savedData);
@@ -22,7 +21,7 @@ const PersonalDetails = ({ nextStep }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Remove the error for the field being edited
+
     setErrors((prevErrors) => ({
       ...prevErrors,
       [name]: "",
@@ -33,7 +32,7 @@ const PersonalDetails = ({ nextStep }) => {
       [name]: value,
     });
 
-    // Save data to sessionStorage
+ 
     sessionStorage.setItem(
       "formData",
       JSON.stringify({
@@ -64,7 +63,7 @@ const PersonalDetails = ({ nextStep }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      nextStep(); // Proceed to next step if validation passes
+      nextStep();
     }
   };
 

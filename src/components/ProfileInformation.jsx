@@ -11,7 +11,6 @@ const ProfileInformation = ({ prevStep, nextStep }) => {
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    // Load saved data from sessionStorage
     const savedData = JSON.parse(sessionStorage.getItem("formData"));
     if (savedData) {
       setFormData(savedData);
@@ -20,22 +19,20 @@ const ProfileInformation = ({ prevStep, nextStep }) => {
 
   const handleChange = (e) => {
     const { name, value, files, options } = e.target;
-
-    // Handle image file upload and convert to Base64
     if (name === "profilePicture" && files.length > 0) {
       const reader = new FileReader();
       reader.readAsDataURL(files[0]);
       reader.onloadend = () => {
         setFormData({
           ...formData,
-          profilePicture: reader.result, // Save the Base64 image string
+          profilePicture: reader.result,
         });
 
         sessionStorage.setItem(
           "formData",
           JSON.stringify({
             ...formData,
-            profilePicture: reader.result, // Store the image in sessionStorage
+            profilePicture: reader.result,
           })
         );
       };
@@ -54,13 +51,11 @@ const ProfileInformation = ({ prevStep, nextStep }) => {
       });
     }
 
-    // Remove the error for the field being edited
     setErrors((prevErrors) => ({
       ...prevErrors,
       [name]: "",
     }));
 
-    // Save data to sessionStorage
     sessionStorage.setItem(
       "formData",
       JSON.stringify({
@@ -87,7 +82,7 @@ const ProfileInformation = ({ prevStep, nextStep }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      nextStep(); // Proceed to next step if validation passes
+      nextStep();
     }
   };
 

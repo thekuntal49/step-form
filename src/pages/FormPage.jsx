@@ -1,4 +1,3 @@
-// src/pages/FormPage.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PersonalDetails } from "../components/PersonalDetails";
@@ -18,7 +17,6 @@ const FormPage = () => {
   };
 
   const handleSubmit = () => {
-    // Redirect to SuccessPage after successful form submission
     navigate("/success");
   };
 
