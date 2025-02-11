@@ -12,6 +12,7 @@ const App = () => {
         <Route path="/" element={<WelcomePage />} />
         <Route path="/form" element={<FormPage />} />
         <Route path="/success" element={<SuccessPage />} />
+        <Route path="*" element={<WelcomePage />} />
       </Routes>
       <Toaster position="top-right" reverseOrder={false} />
     </Router>
