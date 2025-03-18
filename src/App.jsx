@@ -1,13 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Toaster } from "react-hot-toast"; 
+import { Toaster } from "react-hot-toast";
 import { WelcomePage } from "./pages/WelcomePage";
-import { FormPage } from "./pages/FormPage"; 
+import { FormPage } from "./pages/FormPage";
 import { SuccessPage } from "./pages/SuccessPage";
+import { Visitor } from "./components/Visitor";
 
 const App = () => {
   return (
     <Router>
+      <Visitor />
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/form" element={<FormPage />} />
